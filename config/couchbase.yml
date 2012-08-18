@@ -1,0 +1,14 @@
+common: &common
+  hostname: localhost
+  port: 8091
+  username:
+  password:
+  pool: default
+
+development:
+  <<: *common
+  bucket: beer-sample
+
+production:
+  <<: *common
+  bucket: beer-sample

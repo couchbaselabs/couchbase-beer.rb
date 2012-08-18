@@ -12,4 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require jquery.mobile-1.2.0-alpha.1
+//= require jquery.ui.map
+//= require jquery.ui.map.services
+//= require jquery.ui.map.extensions
+//= require format
+//= require locator
+//= require scroller

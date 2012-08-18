@@ -1,0 +1,23 @@
+<div id="countries" data-role="page">
+
+    <div data-role="header">
+        <h1>Countries</h1>
+        <a href="/" data-icon="home">Home</a>
+        <a data-rel="back">Back</a>
+    </div>
+
+    <div data-role="content">
+        <ul data-role="listview" data-filter="true" data-inset="true" data-autodivisers="true">
+            <% @countries.each do |country| %>
+                <li>
+                    <%= link_to country_path(country) do %>
+                        <%= country.key %>
+                        <span class="ui-li-count"><%= country.value %></span>
+                    <% end %>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+
+</div>
+

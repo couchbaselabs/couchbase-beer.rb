@@ -1,0 +1,23 @@
+<div id="beers" data-role="page">
+
+    <div data-role="header">
+        <h1>Lookup Beers</h1>
+        <a href="/" data-icon="home">Home</a>
+        <a data-rel="back">Back</a>
+    </div>
+
+    <div data-role="content">
+        <%= content_tag(:ul, :id => "beers-list",
+                        :data => {:role => "listview",
+                                  :filter => true,
+                                  :inset => true,
+                                  :autodividers => true,
+                                  :url => beers_path(:format => :json),
+                                  :start_key => @last_key}) do %>
+            <% @beers.each do |beer| %>
+                <li><%= link_to beer.key, beer_path(beer) %></li>
+            <% end %>
+        <% end %>
+    </div>
+
+</div>

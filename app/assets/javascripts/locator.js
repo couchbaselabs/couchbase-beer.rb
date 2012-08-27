@@ -1,3 +1,9 @@
+function resizeMap() {
+  $('#map_canvas').css('height', $(window).height() - 100).gmap("refresh");
+}
+
+$(window).bind('orientationchange resize', resizeMap);
+
 $('#locator').live('pageinit', function() {
   var canvas = $('#locator #map_canvas');
   var markers = {}
@@ -52,6 +58,7 @@ $('#locator').live('pageinit', function() {
       }
       fetchBreweries.timer = setTimeout(fetchBreweries, 300);
     });
+    resizeMap();
   });
 }).live('pageshow', function() {
   $('#locator #map_canvas').gmap("refresh");

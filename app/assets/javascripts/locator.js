@@ -1,3 +1,18 @@
+position = new google.maps.LatLng(37.3863, -122.076);
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(function(pos){
+    if (pos) {
+      position = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+    }
+    var canvas = $('#locator #map_canvas');
+    if (canvas.data("gmap")) {
+      var map = canvas.gmap("get", "map");
+      map.setCenter(position);
+      map.panTo(position);
+    }
+  });
+}
+
 function resizeMap() {
   $('#map_canvas').css('height', $(window).height() - 100).gmap("refresh");
 }
@@ -42,14 +57,8 @@ $('#locator').live('pageinit', function() {
       }});
   };
   canvas.gmap({'zoom': 10, 'callback': function(map) {
-    var self = this;
-    self.watchPosition(function(position, status) {
-      if ( status === 'OK' ) {
-        var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-        map.setCenter(latlng);
-        map.panTo(latlng);
-      }
-    });
+    map.setCenter(position);
+    map.panTo(position);
   }}).bind("init", function(evt, map) {
     fetchBreweries();
 		$(canvas.gmap("get", "map")).addEventListener('bounds_changed', function() {

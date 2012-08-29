@@ -1,8 +1,7 @@
 class BreweriesController < ApplicationController
   def index
     filter = params.extract!(:start_key, :end_key).reject{|_, v| v.blank?}
-    @breweries = Brewery.all(filter)
-    @breweries = @breweries.to_a
+    @breweries = Brewery.all(filter).to_a
     @last_key = @breweries.pop.try(:key) || filter[:start_key]
     respond_to do |format|
       format.html

@@ -1,19 +1,4 @@
 GIT
-  remote: git://github.com/couchbase/couchbase-ruby-client.git
-  revision: 73efbdb1484338f2ea975ce22e484479ace44f86
-  specs:
-    couchbase (1.2.0.dp6)
-      multi_json (~> 1.0)
-      yaji (~> 0.3.2)
-
-GIT
-  remote: git://github.com/couchbaselabs/ruby-couchbase-model.git
-  revision: 2ccd18557f8abdaeb8102d01d00f5c1588c6f415
-  specs:
-    couchbase-model (0.1.0)
-      couchbase (~> 1.2.0.dp)
-
-GIT
   remote: git://github.com/macournoyer/thin.git
   revision: 807b5f840a61e8a068972e7dcee0fdb26fdd8c58
   specs:
@@ -61,6 +46,11 @@ GEM
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
     columnize (0.3.6)
+    couchbase (1.2.0.z.beta)
+      multi_json (~> 1.0)
+      yaji (~> 0.3.2)
+    couchbase-model (0.2.0)
+      couchbase (~> 1.2.0.dp)
     daemons (1.1.9)
     debugger (1.2.0)
       columnize (>= 0.3.1)
@@ -70,7 +60,7 @@ GEM
       debugger-ruby_core_source (>= 1.1.1)
     debugger-ruby_core_source (1.1.3)
     erubis (2.7.0)
-    eventmachine (1.0.0.rc.4)
+    eventmachine (1.0.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
     highline (1.6.14)
@@ -146,10 +136,10 @@ PLATFORMS
 
 DEPENDENCIES
   capistrano
-  couchbase!
-  couchbase-model!
+  couchbase (~> 1.2.0.x.beta)
+  couchbase-model (~> 0.2)
   debugger
-  eventmachine (~> 1.0.0.rc.4)
+  eventmachine (~> 1.0.0)
   jquery-rails
   rails (= 3.2.8)
   sass-rails (~> 3.2.3)

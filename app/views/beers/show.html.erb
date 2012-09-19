@@ -24,7 +24,7 @@
         <% end %>
 
         <ul data-role="listview" data-inset="true">
-            <li><%= link_to "Brewery", brewery_path(@beer.brewery_id) %></li>
+            <li><%= link_to "Brewed in #{@beer.brewery.name}", brewery_path(@beer.brewery_id) %></li>
         </ul>
     </div>
 

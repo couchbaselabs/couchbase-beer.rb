@@ -7,7 +7,7 @@ gem 'thin', :git => 'git://github.com/macournoyer/thin.git'
 gem 'jquery-rails'
 gem 'yajl-ruby'
 gem 'couchbase', "~> 1.2.0.x.beta"
-gem 'couchbase-model', "~> 0.2"
+gem 'couchbase-model', :git => 'git://github.com/couchbaselabs/ruby-couchbase-model.git'
 
 gem 'capistrano'
 

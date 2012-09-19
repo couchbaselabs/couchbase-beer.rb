@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/couchbaselabs/ruby-couchbase-model.git
+  revision: c36208f15edda95a3b1f604590c26f7fa1d7ff8a
+  specs:
+    couchbase-model (0.2.0)
+      couchbase (~> 1.2.0.dp)
+
+GIT
   remote: git://github.com/macournoyer/thin.git
   revision: 807b5f840a61e8a068972e7dcee0fdb26fdd8c58
   specs:
@@ -49,8 +56,6 @@ GEM
     couchbase (1.2.0.z.beta)
       multi_json (~> 1.0)
       yaji (~> 0.3.2)
-    couchbase-model (0.2.0)
-      couchbase (~> 1.2.0.dp)
     daemons (1.1.9)
     debugger (1.2.0)
       columnize (>= 0.3.1)
@@ -137,7 +142,7 @@ PLATFORMS
 DEPENDENCIES
   capistrano
   couchbase (~> 1.2.0.x.beta)
-  couchbase-model (~> 0.2)
+  couchbase-model!
   debugger
   eventmachine (~> 1.0.0)
   jquery-rails

@@ -32,7 +32,7 @@ namespace :thin do
 
   [:start, :stop, :restart].each do |action|
     task action, :roles => :app do
-      run("thin #{action} -C #{thin_config}")
+      run("cd #{current_path} && bundle exec thin #{action} -C #{thin_config}")
     end
   end
 end

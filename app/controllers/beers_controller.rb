@@ -14,4 +14,14 @@ class BeersController < ApplicationController
   def show
     @beer = Beer.find(params[:id])
   end
+
+  def edit
+    @beer = Beer.find(params[:id])
+  end
+
+  def update
+    @beer = Beer.find(params[:id])
+    @beer.update(params[:beer], params[:cas].to_i)
+    redirect_to @beer
+  end
 end

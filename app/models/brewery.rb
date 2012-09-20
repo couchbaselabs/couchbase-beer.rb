@@ -10,10 +10,6 @@ class Brewery < Couchbase::Model
   view :by_country, :include_docs => false, :group => true
   view :points, :spatial => true
 
-  def to_param
-    id || key
-  end
-
   def full_address
     [country, state, city, address].reject(&:blank?).join(', ')
   end

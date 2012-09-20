@@ -11,7 +11,9 @@ class Beer < Couchbase::Model
   view :all, :include_docs => false, :limit => 31
   view :by_category, :include_docs => false, :group => true
 
-  def to_param
-    id || key
+  before_save do |doc|
+    doc.abv = doc.abv.to_f
+    doc.ibu = doc.ibu.to_f
+    doc.srm = doc.srm.to_f
   end
 end

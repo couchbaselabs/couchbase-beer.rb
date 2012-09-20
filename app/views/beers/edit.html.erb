@@ -1,0 +1,36 @@
+<div id="beer" data-role="page">
+
+    <div data-role="header">
+        <h1>Update <%= @beer.name %></h1>
+        <a href="/" data-icon="home">Home</a>
+        <a data-rel="back">Back</a>
+    </div>
+
+    <div data-role="content">
+        <%= form_for @beer do |f| %>
+            <%= hidden_field_tag :cas, @beer.meta[:cas] %>
+            <div data-role="fieldcontain">
+                <%= f.label :name %>
+                <%= f.text_field :name %>
+            </div>
+            <div data-role="fieldcontain">
+                <%= f.label :description %>
+                <%= f.text_area :description %>
+            </div>
+            <div data-role="fieldcontain">
+                <%= f.label :abv, "Alcohol by volume (ABV)" %>
+                <%= f.text_field :abv %>
+            </div>
+            <div data-role="fieldcontain">
+                <%= f.label :ibu, "International Bittering Units (IBU)" %>
+                <%= f.text_field :ibu %>
+            </div>
+            <div data-role="fieldcontain">
+                <%= f.label :srm, "Standard Reference Method (SRM)" %>
+                <%= f.text_field :srm %>
+            </div>
+            <%= f.submit "Submit", :data => {:theme => "a"} %>
+        <% end %>
+    </div>
+
+</div>

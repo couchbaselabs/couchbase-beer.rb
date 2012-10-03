@@ -51,6 +51,10 @@ defines views for them, you can find them in corresponding directories
 about this directory structure in the [README][7] of the
 [couchbase-model][8] ruby gem.
 
+Couchbase as a cache storage: there is another bucket should be
+configured and mentioned in [config/application.rb:68][9] to replace
+default cache store in Rails and use Couchbase server instead.
+
 
 [1]: https://github.com/avsej/couchbase-beer.rb/blob/master/config/couchbase.yml
 [2]: https://github.com/avsej/couchbase-beer.rb/blob/master/config/deploy.rb
@@ -60,3 +64,4 @@ about this directory structure in the [README][7] of the
 [6]: https://github.com/avsej/couchbase-beer.rb/blob/master/app/models/brewery
 [7]: https://github.com/couchbase/couchbase-ruby-model#readme
 [8]: https://rubygems.org/gems/couchbase-model
+[9]: https://github.com/avsej/couchbase-beer.rb/blob/master/config/application.rb#L68

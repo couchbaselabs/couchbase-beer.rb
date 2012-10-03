@@ -9,16 +9,16 @@ Couchbase 2.0 server.
 
 2. Checkout this application
 
-       git clone git://github.com/avsej/couchbase-beer.rb.git beer.rb
+        git clone git://github.com/avsej/couchbase-beer.rb.git beer.rb
 
 3. Install all dependencies
 
-       cd beer.rb
-       bundle install
+        cd beer.rb
+        bundle install
 
 4. Update [config/couchbase.yml][1] if needed, or just inspect its contents
 
-       cat config/couchbase.yml
+        cat config/couchbase.yml
 
 5. Optionally. If you are going to deploy application using capistrano,
    you should update [config/deploy.rb][2].

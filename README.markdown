@@ -14,13 +14,21 @@ Couchbase 2.0 server.
 3. Install all dependencies
 
         cd beer.rb
+        gem install bundler
         bundle install
 
 4. Update [config/couchbase.yml][1] if needed, or just inspect its contents
 
         cat config/couchbase.yml
+        
+5. Run the application. It will use `thin` server, you would like to use 
+   another one, you should update Gemfile (comment out the thin gem there). 
 
-5. Optionally. If you are going to deploy application using capistrano,
+        rails server
+
+6. Navigate to `http://localhost:3000`
+
+7. Optionally. If you are going to deploy application using capistrano,
    you should update [config/deploy.rb][2].
 
 ## Interesting Points

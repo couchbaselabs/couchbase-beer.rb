@@ -3,11 +3,11 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.8'
 
 gem "eventmachine", "~> 1.0.0"
-gem 'thin', :git => 'git://github.com/macournoyer/thin.git'
+gem 'thin', "~> 1.5.0"
 gem 'jquery-rails'
 gem 'yajl-ruby'
-gem 'couchbase', "~> 1.2.0.x.beta2"
-gem 'couchbase-model', "~> 0.4.1"
+gem 'couchbase', "1.2.0.z.beta3"
+gem 'couchbase-model', "0.4.4"
 
 gem 'capistrano'
 

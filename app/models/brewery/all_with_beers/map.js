@@ -4,7 +4,9 @@ function(doc, meta) {
     emit([meta.id]);
     break;
   case "beer":
-    emit([doc.brewery_id, doc.name]);
+    if (doc.brewery_id && doc.name) {
+      emit([doc.brewery_id, doc.name]);
+    }
     break;
   }
 }

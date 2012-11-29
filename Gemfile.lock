@@ -37,10 +37,10 @@ GEM
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
     columnize (0.3.6)
-    couchbase (1.2.0.z.beta3)
+    couchbase (1.2.0.z.beta5)
       multi_json (~> 1.0)
       yaji (~> 0.3.2)
-    couchbase-model (0.4.4)
+    couchbase-model (0.5.1)
       couchbase (~> 1.2.0.dp)
     daemons (1.1.9)
     debugger (1.2.1)
@@ -133,8 +133,8 @@ PLATFORMS
 
 DEPENDENCIES
   capistrano
-  couchbase (= 1.2.0.z.beta3)
-  couchbase-model (= 0.4.4)
+  couchbase (= 1.2.0.z.beta5)
+  couchbase-model (= 0.5.1)
   debugger
   eventmachine (~> 1.0.0)
   jquery-rails

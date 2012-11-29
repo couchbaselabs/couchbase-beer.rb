@@ -68,6 +68,10 @@ Couchbase as a cache storage: there is another bucket should be
 configured and mentioned in [config/application.rb:68][9] to replace
 default cache store in Rails and use Couchbase server instead.
 
+Couchbase as a session storage: just take a look at
+[config/initializers/session_store:10][10] for further instructions. You
+probably will need to create yet another bucket for sessions.
+
 
 [1]: https://github.com/avsej/couchbase-beer.rb/blob/master/config/couchbase.yml
 [2]: https://github.com/avsej/couchbase-beer.rb/blob/master/config/deploy.rb
@@ -78,3 +82,4 @@ default cache store in Rails and use Couchbase server instead.
 [7]: https://github.com/couchbase/couchbase-ruby-model#readme
 [8]: https://rubygems.org/gems/couchbase-model
 [9]: https://github.com/avsej/couchbase-beer.rb/blob/master/config/application.rb#L68
+[10]: https://github.com/avsej/couchbase-beer.rb/blob/master/config/initializers/session_store.rb#L10

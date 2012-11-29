@@ -11,5 +11,5 @@ CouchbaseBeer::Application.config.session_store :cookie_store, :key => '_couchba
 # Don't forget to create the bucket
 #
 # require 'action_dispatch/middleware/session/couchbase_store'
-# config.session_store :couchbase_store, :namespace => "beer:", :couchbase => {:bucket => 'session'}
+# CouchbaseBeer::Application.config.session_store :couchbase_store, :namespace => "beer:", :couchbase => {:bucket => 'session'}
 

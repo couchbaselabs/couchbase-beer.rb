@@ -20,15 +20,20 @@ Couchbase 2.0 server.
 4. Update [config/couchbase.yml][1] if needed, or just inspect its contents
 
         cat config/couchbase.yml
-        
-5. Run the application. It will use `thin` server, you would like to use 
-   another one, you should update Gemfile (comment out the thin gem there). 
+
+5. If you are going to use couchbase as rails cache store (by default)
+   you should either create "cache" bucket or fix the appropriate line
+   in `config/application.rb`. It might be good idea to use memcached
+   type of the bucket for the cache.
+
+6. Run the application. It will use `thin` server, you would like to use
+   another one, you should update Gemfile (comment out the thin gem there).
 
         rails server
 
-6. Navigate to `http://localhost:3000`
+7. Navigate to `http://localhost:3000`
 
-7. Optionally. If you are going to deploy application using capistrano,
+8. Optionally. If you are going to deploy application using capistrano,
    you should update [config/deploy.rb][2].
 
 ## Interesting Points

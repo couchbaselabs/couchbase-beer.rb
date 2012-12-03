@@ -5,12 +5,16 @@ class Brewery < Couchbase::Model
   attribute :geo
   attribute :updated
 
-  view :all, :include_docs => false, :limit => 31
+  view :all, :limit => 31
   view :all_with_beers
   view :by_country, :include_docs => false, :group => true
   view :points, :spatial => true
 
   def full_address
     [country, state, city, address].reject(&:blank?).join(', ')
+  end
+
+  def location
+    [country, state].reject(&:blank?).join(', ')
   end
 end

@@ -8,7 +8,7 @@ class Beer < Couchbase::Model
 
   belongs_to :brewery
 
-  view :all, :include_docs => false, :limit => 31
+  view :all, :limit => 31
   view :by_category, :include_docs => false, :group => true
 
   before_save do |doc|

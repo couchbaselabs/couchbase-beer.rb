@@ -1,26 +1,18 @@
-position = new google.maps.LatLng(37.3863, -122.076);
-if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(function(pos){
-    if (pos) {
-      position = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
-    }
-    var canvas = $('#locator #map_canvas');
-    if (canvas.data("gmap")) {
-      var map = canvas.gmap("get", "map");
-      map.setCenter(position);
-      map.panTo(position);
-    }
-  });
-}
-
-function resizeMap() {
-  $('#map_canvas').css('height', $(window).height() - 100).gmap("refresh");
-}
-
-$(window).bind('orientationchange resize', resizeMap);
-
-$('#locator').live('pageinit', function() {
+$(document).ready(function() {
   var canvas = $('#locator #map_canvas');
+  position = new google.maps.LatLng(37.3863, -122.076);
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(pos){
+      if (pos) {
+        position = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+      }
+      if (canvas.data("gmap")) {
+        var map = canvas.gmap("get", "map");
+        map.setCenter(position);
+        map.panTo(position);
+      }
+    });
+  }
   var markers = {}
 
   var fetchBreweries = function() {
@@ -48,37 +40,40 @@ $('#locator').live('pageinit', function() {
               icon: '/assets/bar.png'
             })
             $(markers[item.id]).click(function() {
+              var location = [];
+              if (item.doc.country) {
+                location.push(item.doc.country);
+              }
+              if (item.doc.city) {
+                location.push(item.doc.city);
+              }
               canvas.gmap('openInfoWindow', {
-               content: "<a href='/breweries/{0}'>{1}</a>".format(item.id, item.value.name)
+               content: "<a href='/breweries/{0}'>{1}</a><p>{2}</p>".format(item.id, item.value.name, location.join(', '))
               }, this);
             });
           }
         });
       }});
   };
+
   canvas.gmap({'zoom': 10, 'callback': function(map) {
     map.setCenter(position);
     map.panTo(position);
   }}).bind("init", function(evt, map) {
     fetchBreweries();
-		$(canvas.gmap("get", "map")).addEventListener('bounds_changed', function() {
+    $(canvas.gmap("get", "map")).addEventListener('bounds_changed', function() {
       if (fetchBreweries.timer) {
         clearTimeout(fetchBreweries.timer);
       }
       fetchBreweries.timer = setTimeout(fetchBreweries, 300);
     });
-    resizeMap();
   });
-}).live('pageshow', function() {
-  $('#locator #map_canvas').gmap("refresh");
-});
 
-$('#brewery').live('pageinit', function() {
-  canvas = $('#brewery #map_canvas');
-  var pos = new google.maps.LatLng(canvas.data("lat"), canvas.data("lng"))
-  canvas.gmap({zoom: 15, center: pos, callback: function(map) {
+  var breweryCanvas = $('#brewery #map_canvas');
+  var pos = new google.maps.LatLng(breweryCanvas.data("lat"), breweryCanvas.data("lng"));
+  breweryCanvas.gmap({zoom: 15, center: pos, callback: function(map) {
     this.addMarker({position: pos, icon: '/assets/bar.png'})
   }});
-}).live('pageshow', function() {
-  $('#brewery #map_canvas').gmap('refresh');
+
+  $('#map_canvas').gmap("refresh");
 });

@@ -1,32 +1,38 @@
-<div id="beer" data-role="page">
-
-    <div data-role="header">
+<section id="beer">
+    <div class="page-header">
         <h1><%= @beer.name %></h1>
-        <a href="/" data-icon="home">Home</a>
-        <a data-rel="back">Back</a>
     </div>
 
-    <div data-role="content">
-        <h2><%= @beer.name %></h2>
-
-        <p><%= simple_format @beer.description %></p>
-        <% if @beer.abv > 0 %>
-            <h3>Alcohol by volume (ABV)</h3>
-            <p><%= @beer.abv %></p>
-        <% end %>
-        <% if @beer.ibu > 0 %>
-            <h3>International Bittering Units (IBU)</h3>
-            <p><%= @beer.ibu %></p>
-        <% end %>
-        <% if @beer.srm > 0 %>
-            <h3>Standard Reference Method (SRM)</h3>
-            <p><%= @beer.srm %></p>
-        <% end %>
-
-        <ul data-role="listview" data-inset="true">
-            <li><%= link_to "Brewed in #{@beer.brewery.name}", brewery_path(@beer.brewery_id) %></li>
-            <li><%= link_to "Update info", edit_beer_path(@beer) %></li>
-        </ul>
+    <div class="row">
+        <div class="span5">
+            <h3>Info</h3>
+            <p>Brewed in <%= link_to "Brewed in #{@beer.brewery.name}", brewery_path(@beer.brewery_id) %></p>
+            <p><%= markdown @beer.description %></p>
+        </div>
+        <div class="span5">
+            <h3>Parameters</h3>
+            <table class="table table-bordered table-striped table-hover">
+                <tbody>
+                    <% if @beer.abv > 0 %>
+                        <tr>
+                            <th>Alcohol by volume (ABV)</th>
+                            <td><%= @beer.abv %></td>
+                        </tr>
+                    <% end %>
+                    <% if @beer.ibu > 0 %>
+                        <tr>
+                            <th>International Bittering Units (IBU)</th>
+                            <td><%= @beer.ibu %></td>
+                        </tr>
+                    <% end %>
+                    <% if @beer.srm > 0 %>
+                        <tr>
+                            <th>Standard Reference Method (SRM)</th>
+                            <td><%= @beer.srm %></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
     </div>
 
-</div>
+</section>

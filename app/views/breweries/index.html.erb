@@ -1,23 +1,26 @@
-<div id="breweries" data-role="page">
-
-    <div data-role="header">
+<section id="breweries">
+    <div class="page-header">
         <h1>Lookup Breweries</h1>
-        <a href="/" data-icon="home">Home</a>
-        <a data-rel="back">Back</a>
     </div>
-
-    <div data-role="content">
-        <%= content_tag(:ul, :id => "breweries-list",
-                        :data => {:role => "listview",
-                                  :filter => true,
-                                  :inset => true,
-                                  :autodividers => true,
-                                  :url => breweries_path(:format => :json),
-                                  :start_key => @last_key}) do %>
+    <%= form_tag breweries_path(:format => :json), :class => "well form-search", :method => :get, :remote => true do %>
+        <%= text_field_tag "start_key", nil, :class => "input-xlarge search-query", :placeholder => "Start typing brewery name..." %>
+        <%= submit_tag "Filter", :name => nil, :class => "btn" %>
+    <% end %>
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <%= content_tag(:tbody, :id => "lookup_table", :data => {:url => breweries_path(:format => :json), :start_key => @last_key} ) do %>
             <% @breweries.each do |brewery| %>
-                <li><%= link_to brewery.key, brewery_path(brewery) %></li>
+                <tr>
+                    <td><%= link_to brewery.key, brewery_path(brewery) %></td>
+                    <td><%= brewery.location %></td>
+                </tr>
             <% end %>
         <% end %>
-    </div>
-
-</div>
+    </table>
+    <%= button_tag("More", :id => "more-btn", :class => "btn btn-primary btn-large row-fluid") %>
+</section>

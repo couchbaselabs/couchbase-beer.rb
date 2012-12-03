@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'yajl-ruby'
 gem 'couchbase', "1.2.0.z.beta5"
 gem 'couchbase-model', "0.5.1"
+gem 'rdiscount'
 
 gem 'capistrano'
 

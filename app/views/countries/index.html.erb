@@ -1,23 +1,19 @@
-<div id="countries" data-role="page">
-
-    <div data-role="header">
+<section id="countries">
+    <div class="page-header">
         <h1>Countries</h1>
-        <a href="/" data-icon="home">Home</a>
-        <a data-rel="back">Back</a>
     </div>
 
-    <div data-role="content">
-        <ul data-role="listview" data-filter="true" data-inset="true" data-autodivisers="true">
+    <table class="table table-bordered table-striped table-hover">
+        <tbody>
             <% @countries.each do |country| %>
-                <li>
-                    <%= link_to country_path(country) do %>
-                        <%= country.key %>
-                        <span class="ui-li-count"><%= country.value %></span>
-                    <% end %>
-                </li>
+                <tr>
+                    <td>
+                        <%= link_to country.key, country_path(country) %>
+                        <span class="badge pull-right"><%= country.value %></span>
+                    </td>
+                </tr>
             <% end %>
-        </ul>
-    </div>
-
-</div>
+        </tbody>
+    </table>
+</section>
 

@@ -1,21 +1,23 @@
-<div id="country" data-role="page">
-
-    <div data-role="header">
+<section id="breweries">
+    <div class="page-header">
         <h1>Breweries in <%= params[:id] %></h1>
-        <a href="/" data-icon="home">Home</a>
-        <a data-rel="back">Back</a>
     </div>
 
-    <div data-role="content">
-        <ul data-role="listview" data-filter="true" data-inset="true" data-autodivisers="true">
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
             <% @breweries.each do |brewery| %>
-                <li>
-                    <%= link_to brewery_path(brewery) do %>
-                        <%= brewery.name %>
-                    <% end %>
-                </li>
+                <tr>
+                    <td><%= link_to brewery.name, brewery_path(brewery) %></td>
+                    <td><%= brewery.location %></td>
+                </tr>
             <% end %>
-        </ul>
-    </div>
+        </tbody>
+    </table>
 
-</div>
+</section>

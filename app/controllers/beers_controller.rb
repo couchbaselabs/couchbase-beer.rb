@@ -2,7 +2,9 @@ class BeersController < ApplicationController
   def index
     filter = params.extract!(:start_key, :end_key).reject{|_, v| v.blank?}
     @beers = Beer.all(filter).to_a
-    @last_key = @beers.pop.try(:key) || filter[:start_key]
+    if @beers.size > 30
+      @last_key = @beers.pop.try(:key)
+    end
     respond_to do |format|
       format.html
       format.json do

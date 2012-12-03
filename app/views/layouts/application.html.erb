@@ -9,6 +9,39 @@
         <%= csrf_meta_tags %>
     </head>
     <body>
-        <%= yield %>
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <%= link_to "CouchbaseBeer.rb", root_path, :class => "brand" %>
+                    <div class="nav-collapse" id="main-menu">
+                        <ul class="nav" id="main-menu-left">
+                            <li><%= link_to "Breweries", breweries_path %></li>
+                            <li><%= link_to "Beers", beers_path %></li>
+                            <li><%= link_to "By Country", countries_path %></li>
+                            <li><%= link_to "Map", locator_path %></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <%= yield %>
+            <br><br><br><br>
+            <hr>
+
+            <footer id="footer">
+                <p>
+                    Code licensed under the <a target="_blank" href="http://www.apache.org/licenses/LICENSE-2.0">Apache License v2.0</a>.<br/>
+                    Based on <a target="_blank" href="http://twitter.github.com/bootstrap/">Bootstrap</a> and <a target="_blank" href="http://www.couchbase.com">Couchbase</a>.
+                    Icons from <a target="_blank" href="http://glyphicons.com/">Glyphicons</a>.
+                    Web fonts from <a target="_blank" href="http://www.google.com/webfonts">Google</a>.
+                </p>
+            </footer>
+        </div>
     </body>
 </html>

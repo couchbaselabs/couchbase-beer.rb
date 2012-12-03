@@ -1,37 +1,39 @@
-<div id="brewery" data-role="page">
-
-    <div data-role="header">
+<section id="brewery">
+    <div class="page-header">
         <h1><%= @brewery.name %></h1>
-        <a href="/" data-icon="home">Home</a>
-        <a data-rel="back">Back</a>
     </div>
-
-    <div data-role="content">
-        <h2><%= @brewery.name %></h2>
-        <% if (address = @brewery.full_address).present? %>
-            <h3>Address</h3>
-            <p><%= address %></p>
-        <% end %>
-        <% if @brewery.phone.present? %>
-            <h3>Phone</h3>
-            <p><%= @brewery.phone %></p>
-        <% end %>
-        <p><%= simple_format @brewery.description %></p>
-        <div data-role="collapsible">
-            <h3>Beers</h3>
-            <p>
-                <ul data-role="listview" data-filter="true" data-inset="false" data-autodivisers="true">
-                    <% @beers.each do |beer| %>
-                        <li><%= link_to beer.name, beer_path(beer) %></li>
-                    <% end %>
-                </ul>
-            </p>
+    <div class="row">
+        <div class="span5">
+            <h3>Info</h3>
+            <p><%= markdown @brewery.description %></p>
         </div>
-        <% if @brewery.geo %>
-            <div class="ui-bar-c ui-corner-all ui-shadow" style="padding:1em;">
-                <%= tag(:div, :id => "map_canvas", :style => "height:300px", :data => @brewery.geo) %>
+        <% if (address = @brewery.full_address).present? %>
+            <div class="span5">
+                <h3>Address</h3>
+                <address><%= address %></address>
+                <% if @brewery.phone.present? %>
+                    <p><%= @brewery.phone %></p>
+                <% end %>
             </div>
         <% end %>
     </div>
-
-</div>
+    <div class="row">
+        <div class="span5">
+            <% unless @beers.empty? %>
+                <h3>Produces <%= pluralize(@beers.size, "Sort") %> of Beer</h3>
+                <table class="table table-bordered table-striped table-hover">
+                    <tbody>
+                        <% @beers.each do |beer| %>
+                            <tr>
+                                <td><%= link_to beer.name, beer_path(beer) %></td>
+                            </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            <% end %>
+        </div>
+        <% if @brewery.geo %>
+            <%= tag(:div, :id => "map_canvas", :class => "span5", :style => "height:300px", :data => @brewery.geo) %>
+        <% end %>
+    </div>
+</section>

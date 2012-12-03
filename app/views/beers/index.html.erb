@@ -1,23 +1,27 @@
-<div id="beers" data-role="page">
-
-    <div data-role="header">
-        <h1>Lookup Beers</h1>
-        <a href="/" data-icon="home">Home</a>
-        <a data-rel="back">Back</a>
+<section id="beers">
+    <div class="page-header">
+        <h1>Lookup Beer</h1>
     </div>
-
-    <div data-role="content">
-        <%= content_tag(:ul, :id => "beers-list",
-                        :data => {:role => "listview",
-                                  :filter => true,
-                                  :inset => true,
-                                  :autodividers => true,
-                                  :url => beers_path(:format => :json),
-                                  :start_key => @last_key}) do %>
+    <%= form_tag breweries_path(:format => :json), :class => "well form-search", :method => :get, :remote => true do %>
+        <%= text_field_tag "start_key", nil, :class => "input-xlarge search-query", :placeholder => "Start typing beer name..." %>
+        <%= submit_tag "Filter", :name => nil, :class => "btn" %>
+    <% end %>
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th><abbr title="Alcohol by Volume">ABV</abbr></th>
+            </tr>
+        </thead>
+        <%= content_tag(:tbody, :id => "lookup_table", :data => {:url => beers_path(:format => :json), :start_key => @last_key} ) do %>
             <% @beers.each do |beer| %>
-                <li><%= link_to beer.key, beer_path(beer) %></li>
+                <tr>
+                    <td><%= link_to beer.key, beer_path(beer) %></td>
+                    <td><%= beer.abv %></td>
+                </tr>
             <% end %>
         <% end %>
-    </div>
+    </table>
+    <%= button_tag("More", :id => "more-btn", :class => "btn btn-primary btn-large row-fluid") %>
+</section>
 
-</div>

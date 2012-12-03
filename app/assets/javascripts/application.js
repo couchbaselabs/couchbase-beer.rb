@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.mobile-1.2.0-alpha.1
+//= require bootstrap
 //= require jquery.ui.map
 //= require jquery.ui.map.services
 //= require jquery.ui.map.extensions

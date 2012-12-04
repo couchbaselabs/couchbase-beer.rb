@@ -9,6 +9,8 @@ gem 'yajl-ruby'
 gem 'couchbase', :git => 'git://github.com/couchbase/couchbase-ruby-client.git'
 gem 'couchbase-model', "0.5.1"
 gem 'rdiscount'
+gem 'omniauth'
+gem 'omniauth-twitter'
 
 gem 'capistrano'
 

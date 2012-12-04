@@ -38,6 +38,13 @@ namespace :thin do
 end
 after "deploy:setup", "thin:setup"
 
+namespace :config do
+  task :omniauth do
+    run("cp -f #{File.join(shared_path, 'omniauth.rb')} #{File.join(current_path, 'config/initializers/')}")
+  end
+end
+after "deploy:create_symlink", "config:omniauth"
+
 namespace :deploy do
   [:start, :stop, :restart].each do |action|
     task action do

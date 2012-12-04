@@ -7,33 +7,43 @@
             <h3>Info</h3>
             <p><%= markdown @brewery.description %></p>
         </div>
-        <% if (address = @brewery.full_address).present? %>
-            <div class="span5">
-                <h3>Address</h3>
-                <address><%= address %></address>
-                <% if @brewery.phone.present? %>
-                    <p><%= @brewery.phone %></p>
-                <% end %>
-            </div>
-        <% end %>
-    </div>
-    <div class="row">
         <div class="span5">
             <% unless @beers.empty? %>
                 <h3>Produces <%= pluralize(@beers.size, "Sort") %> of Beer</h3>
                 <table class="table table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th><abbr title="Alcohol by Volume">ABV</abbr></th>
+                        </tr>
+                    </thead>
                     <tbody>
                         <% @beers.each do |beer| %>
                             <tr>
                                 <td><%= link_to beer.name, beer_path(beer) %></td>
+                                <td><%= beer.doc[:abv] %></td>
                             </tr>
                         <% end %>
                     </tbody>
                 </table>
             <% end %>
         </div>
-        <% if @brewery.geo %>
-            <%= tag(:div, :id => "map_canvas", :class => "span5", :style => "height:300px", :data => @brewery.geo) %>
-        <% end %>
+    </div>
+    <div class="row">
+        <div class="span5">
+            <% if (address = @brewery.full_address).present? %>
+                <h3>Address</h3>
+                <address><%= address %></address>
+                <% if @brewery.phone.present? %>
+                    <p><%= @brewery.phone %></p>
+                <% end %>
+            <% end %>
+        </div>
+        <div class="span5">
+            <% if @brewery.geo %>
+                <h3>Map</h3>
+                <%= tag(:div, :id => "map_canvas", :class => "span5", :style => "height:300px", :data => @brewery.geo) %>
+            <% end %>
+        </div>
     </div>
 </section>

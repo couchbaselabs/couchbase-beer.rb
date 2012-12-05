@@ -3,8 +3,10 @@
         <h1>Lookup Beer</h1>
     </div>
     <%= form_tag breweries_path(:format => :json), :class => "well form-search", :method => :get, :remote => true do %>
-        <%= text_field_tag "start_key", nil, :class => "input-xlarge search-query", :placeholder => "Start typing beer name..." %>
-        <%= submit_tag "Filter", :name => nil, :class => "btn" %>
+        <div class="input-append">
+            <%= text_field_tag "start_key", nil, :class => "input-xlarge search-query", :placeholder => "Start typing beer name..." %>
+            <%= submit_tag "Filter", :name => nil, :class => "btn" %>
+        </div>
     <% end %>
     <table class="table table-bordered table-striped table-hover">
         <thead>

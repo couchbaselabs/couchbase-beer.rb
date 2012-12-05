@@ -16,7 +16,7 @@
         <%= content_tag(:tbody, :id => "lookup_table", :data => {:url => beers_path(:format => :json), :start_key => @last_key} ) do %>
             <% @beers.each do |beer| %>
                 <tr>
-                    <td><%= link_to beer.key, beer_path(beer) %></td>
+                    <td><%= link_to beer.name, beer_path(beer) %></td>
                     <td><%= beer.abv %></td>
                 </tr>
             <% end %>

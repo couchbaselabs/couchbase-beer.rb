@@ -5,6 +5,7 @@ CouchbaseBeer::Application.routes.draw do
   resources :beers
   resources :breweries
   resources :countries
+  resources :favourites
 
   match '/auth/twitter/callback', :to => 'sessions#create'
 end

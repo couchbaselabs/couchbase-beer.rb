@@ -9,4 +9,8 @@ class User < Couchbase::Model
     end
     user
   end
+
+  def favourites
+    Favourites.find_or_create_by_user_id(self.id)
+  end
 end

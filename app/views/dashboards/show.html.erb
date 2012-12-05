@@ -30,10 +30,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Lorem</td>
-                        <td>Ipsum</td>
-                    </tr>
+                    <% @favourites.each do |item, time| %>
+                        <tr>
+                            <td><%= link_to item.name, item %></td>
+                            <td><%= l(time, :format => :short) %></td>
+                        </tr>
+                    <% end %>
                 </tbody>
             </table>
         </div>

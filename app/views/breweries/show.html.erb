@@ -4,7 +4,7 @@
     </div>
     <div class="row">
         <div class="span5">
-            <h3>Info <%= favourite_button(@brewery) %></h3>
+            <h3>Info <%= favourite_button(@brewery) if signed_in? %></h3>
             <p><%= markdown @brewery.description %></p>
         </div>
         <div class="span5">

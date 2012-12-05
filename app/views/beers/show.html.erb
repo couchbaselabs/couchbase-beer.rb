@@ -5,7 +5,7 @@
 
     <div class="row">
         <div class="span5">
-            <h3>Info <%= favourite_button(@beer) %></h3>
+            <h3>Info <%= favourite_button(@beer) if signed_in? %></h3>
             <p>Brewed in <%= link_to "Brewed in #{@beer.brewery.name}", brewery_path(@beer.brewery_id) %></p>
             <p><%= markdown @beer.description %></p>
         </div>

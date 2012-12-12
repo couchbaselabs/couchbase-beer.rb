@@ -1,11 +1,3 @@
-GIT
-  remote: git://github.com/couchbase/couchbase-ruby-client.git
-  revision: 8ceff3420bb534690956f7df2832c71c67d6e758
-  specs:
-    couchbase (1.2.0.z.beta5)
-      multi_json (~> 1.0)
-      yaji (~> 0.3.2)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -44,17 +36,12 @@ GEM
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
-    columnize (0.3.6)
+    couchbase (1.2.0)
+      multi_json (~> 1.0)
+      yaji (~> 0.3.2)
     couchbase-model (0.5.1)
       couchbase (~> 1.2.0.dp)
     daemons (1.1.9)
-    debugger (1.2.2)
-      columnize (>= 0.3.1)
-      debugger-linecache (~> 1.1.1)
-      debugger-ruby_core_source (~> 1.1.5)
-    debugger-linecache (1.1.2)
-      debugger-ruby_core_source (>= 1.1.1)
-    debugger-ruby_core_source (1.1.5)
     erubis (2.7.0)
     eventmachine (1.0.0)
     execjs (1.4.0)
@@ -148,9 +135,8 @@ PLATFORMS
 
 DEPENDENCIES
   capistrano
-  couchbase!
+  couchbase (= 1.2.0)
   couchbase-model (= 0.5.1)
-  debugger
   eventmachine (~> 1.0.0)
   jquery-rails
   omniauth

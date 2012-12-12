@@ -6,17 +6,13 @@ gem "eventmachine", "~> 1.0.0"
 gem 'thin', "~> 1.5.0"
 gem 'jquery-rails'
 gem 'yajl-ruby'
-gem 'couchbase', :git => 'git://github.com/couchbase/couchbase-ruby-client.git'
+gem 'couchbase', '1.2.0'
 gem 'couchbase-model', "0.5.1"
 gem 'rdiscount'
 gem 'omniauth'
 gem 'omniauth-twitter'
 
 gem 'capistrano'
-
-group :development, :test do
-  gem 'debugger'
-end
 
 group :assets do
   gem 'sass-rails', '~> 3.2.3'

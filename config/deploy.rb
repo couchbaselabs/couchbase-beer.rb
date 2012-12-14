@@ -1,7 +1,7 @@
 require "bundler/capistrano"
 
 set :application, "couchbase-beer.rb"
-set :repository,  "git://github.com/avsej/couchbase-beer.rb.git"
+set :repository,  "git://github.com/couchbaselabs/couchbase-beer.rb.git"
 
 set :scm, :git
 set :deploy_via, :checkout

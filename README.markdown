@@ -9,7 +9,7 @@ Couchbase 2.0 server.
 
 2. Checkout this application
 
-        git clone git://github.com/avsej/couchbase-beer.rb.git beer.rb
+        git clone git://github.com/couchbaselabs/couchbase-beer.rb.git beer.rb
 
 3. Install all dependencies
 
@@ -73,13 +73,13 @@ Couchbase as a session storage: just take a look at
 probably will need to create yet another bucket for sessions.
 
 
-[1]: https://github.com/avsej/couchbase-beer.rb/blob/master/config/couchbase.yml
-[2]: https://github.com/avsej/couchbase-beer.rb/blob/master/config/deploy.rb
-[3]: https://github.com/avsej/couchbase-beer.rb/blob/master/app/models/beer.rb
-[4]: https://github.com/avsej/couchbase-beer.rb/blob/master/app/models/brewery.rb
-[5]: https://github.com/avsej/couchbase-beer.rb/blob/master/app/models/beer
-[6]: https://github.com/avsej/couchbase-beer.rb/blob/master/app/models/brewery
+[1]: https://github.com/couchbaselabs/couchbase-beer.rb/blob/master/config/couchbase.yml
+[2]: https://github.com/couchbaselabs/couchbase-beer.rb/blob/master/config/deploy.rb
+[3]: https://github.com/couchbaselabs/couchbase-beer.rb/blob/master/app/models/beer.rb
+[4]: https://github.com/couchbaselabs/couchbase-beer.rb/blob/master/app/models/brewery.rb
+[5]: https://github.com/couchbaselabs/couchbase-beer.rb/blob/master/app/models/beer
+[6]: https://github.com/couchbaselabs/couchbase-beer.rb/blob/master/app/models/brewery
 [7]: https://github.com/couchbase/couchbase-ruby-model#readme
 [8]: https://rubygems.org/gems/couchbase-model
-[9]: https://github.com/avsej/couchbase-beer.rb/blob/master/config/application.rb#L68
-[10]: https://github.com/avsej/couchbase-beer.rb/blob/master/config/initializers/session_store.rb#L10
+[9]: https://github.com/couchbaselabs/couchbase-beer.rb/blob/master/config/application.rb#L68
+[10]: https://github.com/couchbaselabs/couchbase-beer.rb/blob/master/config/initializers/session_store.rb#L10

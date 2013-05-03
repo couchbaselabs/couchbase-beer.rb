@@ -28,7 +28,6 @@ function fetch(onComplete) {
     "data": {"start_key": startKey, "end_key": endKey},
     "complete": onComplete,
     "success": function(data) {
-      console.log(data);
       $.each(data.items, function(_, item) {
         if (url.match(/beers.json$/)) {
           table.append(formatBeer(url, item));
@@ -36,7 +35,6 @@ function fetch(onComplete) {
           table.append(formatBrewery(url, item));
         }
       });
-      console.log(data.last_key);
       if (data.last_key) {
         table.data("start-key", data.last_key.toLowerCase());
         $("#more-btn").show();
@@ -52,7 +50,7 @@ function fetch(onComplete) {
 }
 
 $(document).ready(function() {
-  $("#more-btn").live('click', function() {
+  $("#more-btn").on('click', function() {
     var button = $(this);
     button.html('<i class="icon-refresh icon-white"></i>');
     button.attr("disabled", true);

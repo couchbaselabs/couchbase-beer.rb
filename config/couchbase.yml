@@ -1,7 +1,6 @@
 common: &common
   hostname: localhost
   port: 8091
-  username:
   password:
   pool: default
 

@@ -1,18 +1,19 @@
 function formatBrewery(url, item) {
   var tmpl = '<tr><td><a href="{0}">{1}</a></td><td>{2}</td></tr>';
   var location = [];
-  if (item.doc.country) {
-    location.push(item.doc.country);
+  if (item.country) {
+    location.push(item.country);
   }
-  if (item.doc.city) {
-    location.push(item.doc.city);
+  if (item.city) {
+    location.push(item.city);
   }
-  return tmpl.format(url.replace('.json', '/' + item.id), item.key, location.join(', '));
+  return tmpl.format(url.replace('.json', '/' + item.id), item.name, location.join(', '));
 }
 
 function formatBeer(url, item) {
   var tmpl = '<tr><td><a href="{0}">{1}</a></td><td>{2}</td></tr>';
-  return tmpl.format(url.replace('.json', '/' + item.id), item.key, item.doc.abv);
+  theItem = item;
+  return tmpl.format(url.replace('.json', '/' + item.id), item.name, item.abv);
 }
 
 function fetch(onComplete) {
